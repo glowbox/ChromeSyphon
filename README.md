@@ -1,7 +1,7 @@
 # ChromeSyphon
 
 
-A verion of the CEF example project which will render the browser view as a syphon source. This was inspired by the [CefWithSyphon](https://github.com/vibber/CefWithSyphon) project but it includes additional configuration options via an external config JSON file which are hard coded in CefWithSyphon.
+A verion of the CEF example project which will render the browser view as a syphon source. This was inspired by the [CefWithSyphon](https://github.com/vibber/CefWithSyphon) project but it includes many additional configuration options by way of a JSON configuration file.
 
 ## Current Release
 
