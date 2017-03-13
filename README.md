@@ -3,6 +3,11 @@
 
 A verion of the CEF example project which will render the browser view as a syphon source. This was inspired by the [CefWithSyphon](https://github.com/vibber/CefWithSyphon) project but it includes additional configuration options via an external config JSON file which are hard coded in CefWithSyphon.
 
+## Current Release
+
+[Download the latest release here.](https://github.com/glowbox/ChromeSyphon/releases/download/v1.0/ChromeSyphon-build.zip)
+
+**Note:** Builds are provided as-is, this tool has not been extensively tested.
 
 ## Configuration 
 
