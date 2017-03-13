@@ -3,7 +3,7 @@
 
 Render any web content as a Syphon source.
 
-This project is based on the example MacOS project included with the Chromium Embedded Framework. It is inspired by the [CefWithSyphon](https://github.com/vibber/CefWithSyphon) project but includes many additional configuration options by way of a JSON configuration file.
+This project is based on the example MacOS project included with the Chromium Embedded Framework. It is inspired by the [CefWithSyphon](https://github.com/vibber/CefWithSyphon) project but includes many additional configuration options by way of a JSON file.
 
 ## Current Release
 
@@ -20,7 +20,7 @@ Configuration options include:
 | Property | Type | Description 
 | -------- | ---- | -----------
 | url      | string | The URL to load at startup
-| content-width | integer | Witdh of the browser content in pixels.
+| content-width | integer | Width of the browser content in pixels.
 | content-height | integer | Height of the browser content in pixels.
 | window-x | integer | Horizontal position of the window at startup.
 | window-y | integer | Vertical of the window at startup.
