@@ -45,6 +45,6 @@ To build:
 
 This project was made possible by the efforts of many other talented people:
 
-[The amazing Syphon Framework](Syphon framework was built by Vade.https://github.com/Syphon/Syphon-Framework) by [Vade](https://github.com/vade)
+The [Syphon Framework](https://github.com/Syphon/Syphon-Framework) built by [Vade](https://github.com/vade)
 
 [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef)
