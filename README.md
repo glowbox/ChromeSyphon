@@ -23,8 +23,8 @@ Configuration options include:
 | content-width | integer | Width of the browser content in pixels.
 | content-height | integer | Height of the browser content in pixels.
 | window-x | integer | Horizontal position of the window at startup.
-| window-y | integer | Vertical of the window at startup.
-| start-minimized | boolean | If true, the window will minimze to the dock at startup.
+| window-y | integer | Vertical position of the window at startup.
+| start-minimized | boolean | If true, the window will minimize to the dock at startup.
 | allow-window-resize | boolean | If true, the window will be resizable.
 | syphon-name | string | The name of the syphon source.
 
