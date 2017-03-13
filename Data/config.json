@@ -1,10 +1,10 @@
 {
-  "url" : "https://threejs.org/examples/webgl_lines_colors.html",
-  "content-width" : 528,
-  "content-height" : 440,
-  "window-x" : 500,
+  "url" : "http://www.google.com",
+  "content-width" : 800,
+  "content-height" : 600,
+  "window-x" : 100,
   "window-y" : 100,
   "start-minimized" : false,
   "allow-window-resize" : false,
-  "syphon-name" : "twitter-feed"
+  "syphon-name" : "web-content"
 }

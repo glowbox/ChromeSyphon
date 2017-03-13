@@ -1,4 +1,5 @@
-
+CEF/*.gypi
+CEF/*.gyp
 CEF/*/
 xcodebuild
 xcuserdata
