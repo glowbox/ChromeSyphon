@@ -1,7 +1,7 @@
 # ChromeSyphon
 
 
-A verion of the CEF example project which will render the browser view as a syphon source. This was inspired by the [CefWithSyphon](https://github.com/vibber/CefWithSyphon) project but it includes additional automation capabilities via an external config JSON file.
+A verion of the CEF example project which will render the browser view as a syphon source. This was inspired by the [CefWithSyphon](https://github.com/vibber/CefWithSyphon) project but it includes additional configuration options via an external config JSON file which are hard coded in CefWithSyphon.
 
 
 ## Configuration 
@@ -34,3 +34,10 @@ To build:
  4. Open the xcode project and build it.
  
  
+## Credits
+
+This project was made possible by the efforts of many other talented people:
+
+[The amazing Syphon Framework](Syphon framework was built by Vade.https://github.com/Syphon/Syphon-Framework) by [Vade](https://github.com/vade)
+
+[Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef)
