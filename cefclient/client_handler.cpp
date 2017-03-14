@@ -23,10 +23,9 @@
 #include "cefclient/client_renderer.h"
 #include "cefclient/client_switches.h"
 #include "cefclient/dialog_test.h"
-#include "cefclient/dom_test.h"
 #include "cefclient/resource_util.h"
 #include "cefclient/string_util.h"
-//#include "cefclient/window_test.h"
+
 
 namespace {
 
@@ -184,47 +183,7 @@ bool ClientHandler::OnConsoleMessage(CefRefPtr<CefBrowser> browser,
                                      const CefString& message,
                                      const CefString& source,
                                      int line) {
-  /*
-REQUIRE_UI_THREAD();
-
-  bool first_message;
-  std::string logFile;
-
-  {
-    AutoLock lock_scope(this);
-
-    first_message = m_LogFile.empty();
-    if (first_message) {
-      std::stringstream ss;
-      ss << AppGetWorkingDirectory();
-#if defined(OS_WIN)
-      ss << "\\";
-#else
-      ss << "/";
-#endif
-      ss << "console.log";
-      m_LogFile = ss.str();
-    }
-    logFile = m_LogFile;
-  }
-
-  FILE* file = fopen(logFile.c_str(), "a");
-  if (file) {
-    std::stringstream ss;
-    ss << "Message: " << std::string(message) << "\r\nSource: " <<
-        std::string(source) << "\r\nLine: " << line <<
-        "\r\n-----------------------\r\n";
-    fputs(ss.str().c_str(), file);
-    fclose(file);
-
-    if (first_message)
-      SendNotification(NOTIFY_CONSOLE_MESSAGE);
-  }
-   */
-
-
   // Ignore console messages.
-
   return false;
 }
 
@@ -395,12 +354,9 @@ void ClientHandler::OnLoadEnd(CefRefPtr<CefBrowser> browser,
   REQUIRE_UI_THREAD();
 
   if (m_BrowserId == browser->GetIdentifier() && frame->IsMain()) {
+
     // We've just finished loading a page
     SetLoading(false);
-
-    // Continue the DOM test.
-    if (frame->GetURL() == dom_test::kTestUrl)
-      dom_test::OnLoadEnd(browser);
   }
 }
 

@@ -156,8 +156,6 @@
 		C54E3F1DD6D7CF80C3C49F7B /* cefclient_mac.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E0B6B0F071E0CF61DD3F0CF /* cefclient_mac.mm */; };
 		D29913F7260B5EDCCE9AF439 /* binding_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 006AE1034A0202A424C08D50 /* binding_test.cpp */; };
 		DC373AE1461E32B5E6F7F620 /* cefclient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDFDD7C41EA28111EEFAD317 /* cefclient.cpp */; };
-		E13E9F30FD07F828902810C8 /* dom_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFB0E99A46D078D6ED693F /* dom_test.cpp */; };
-		E2785863935CE240FE3261B0 /* dom_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFB0E99A46D078D6ED693F /* dom_test.cpp */; };
 		EEE73B9F2B89364B4FB1EEB2 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 575B8B058160F0E57AA6811C /* AppKit.framework */; };
 		EFCDC414F97A9F4363B317BD /* client_switches.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59159B08FF91C1426457B5F3 /* client_switches.cpp */; };
 		F2CF323CDF9F339FD42115BE /* string_util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B11D7267C37E26AE0E9DFF40 /* string_util.cpp */; };
@@ -602,7 +600,6 @@
 		575B8B058160F0E57AA6811C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		59159B08FF91C1426457B5F3 /* client_switches.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = client_switches.cpp; sourceTree = "<group>"; };
 		6D38675643383C69FC7B4998 /* performance_test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = performance_test.h; sourceTree = "<group>"; };
-		6DAFB0E99A46D078D6ED693F /* dom_test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dom_test.cpp; sourceTree = "<group>"; };
 		7508A3D3BDEBB05F40B61A3E /* dialog_test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dialog_test.cpp; sourceTree = "<group>"; };
 		8284F33BA6AF70EF7869CB40 /* client_app.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = client_app.h; sourceTree = "<group>"; };
 		87046C20181EA9DF3C728635 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -625,7 +622,6 @@
 		CAAD96D31A880F79FED07882 /* ChromeSyphon Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ChromeSyphon Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E07938F71CFB6B3F62A8E872 /* libcef_dll_wrapper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libcef_dll_wrapper.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D138B95E0CE9B8E2D281FC /* client_app_delegates.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = client_app_delegates.cpp; sourceTree = "<group>"; };
-		E7D2A4EB2CF9BE823F650B9C /* dom_test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dom_test.h; sourceTree = "<group>"; };
 		EC3142E0CA8C521B3F746771 /* cefclient.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = cefclient.icns; sourceTree = "<group>"; };
 		EDE58612117468EBAFDFAD3A /* osrenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = osrenderer.h; sourceTree = "<group>"; };
 		F03414DFBE490E72457905C1 /* performance_test_tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = performance_test_tests.cpp; sourceTree = "<group>"; };
@@ -1156,8 +1152,6 @@
 				A16A0981308AA35A8C851945 /* client_switches.h */,
 				7508A3D3BDEBB05F40B61A3E /* dialog_test.cpp */,
 				37E35138EAC4136B68DE12E6 /* dialog_test.h */,
-				6DAFB0E99A46D078D6ED693F /* dom_test.cpp */,
-				E7D2A4EB2CF9BE823F650B9C /* dom_test.h */,
 				C65059AC6A319B424CD1E0AE /* osrenderer.cpp */,
 				EDE58612117468EBAFDFAD3A /* osrenderer.h */,
 				B08E980D066F8075FAB09881 /* performance_test.cpp */,
@@ -1483,7 +1477,6 @@
 				9B7735785F7F1B68394AA41D /* client_renderer.cpp in Sources */,
 				EFCDC414F97A9F4363B317BD /* client_switches.cpp in Sources */,
 				2A22FD50FFDFE8908DFBF0F9 /* dialog_test.cpp in Sources */,
-				E13E9F30FD07F828902810C8 /* dom_test.cpp in Sources */,
 				81650DD8BCA398C2CC226C31 /* performance_test.cpp in Sources */,
 				507665EDE376A68C3C51103D /* performance_test_tests.cpp in Sources */,
 				950455C658C9643411BE83F0 /* process_helper_mac.cpp in Sources */,
@@ -1508,7 +1501,6 @@
 				BEE7CD04B99A03EF493C39C0 /* client_renderer.cpp in Sources */,
 				81AE136D0579559098F1351C /* client_switches.cpp in Sources */,
 				8A963E50AF926F885B6DA383 /* dialog_test.cpp in Sources */,
-				E2785863935CE240FE3261B0 /* dom_test.cpp in Sources */,
 				FB6DE34D339BA828B9B82C59 /* osrenderer.cpp in Sources */,
 				F4606BD42D6BCE7408AA4562 /* performance_test.cpp in Sources */,
 				4D7EEFC130CBFA8B8DDF291D /* performance_test_tests.cpp in Sources */,
