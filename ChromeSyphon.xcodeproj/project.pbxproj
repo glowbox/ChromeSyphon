@@ -25,7 +25,6 @@
 /* Begin PBXBuildFile section */
 		0406C822FFF747FB7AE77BA5 /* window_test_mac.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D6630549D783F0C0C3D384D /* window_test_mac.mm */; };
 		05062B50B46BEFB121057FEB /* resource_util_posix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28CEDD22BF3B86C4AC210837 /* resource_util_posix.cpp */; };
-		0A7994D5F31B85F728C91110 /* scheme_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AAFE411DC0A742EB8D0BF41 /* scheme_test.cpp */; };
 		1270BAAED1DD097A971AB1EE /* binding_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 006AE1034A0202A424C08D50 /* binding_test.cpp */; };
 		1AEF88B979643E1D3CDF6FE6 /* window_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF1814976FF5760BFB043677 /* window_test.cpp */; };
 		1D71AEAB6898E52A56F08D12 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECC0DAF3A431D37BF14746E5 /* InfoPlist.strings */; };
@@ -141,7 +140,6 @@
 		81650DD8BCA398C2CC226C31 /* performance_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B08E980D066F8075FAB09881 /* performance_test.cpp */; };
 		81AE136D0579559098F1351C /* client_switches.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59159B08FF91C1426457B5F3 /* client_switches.cpp */; };
 		8A963E50AF926F885B6DA383 /* dialog_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7508A3D3BDEBB05F40B61A3E /* dialog_test.cpp */; };
-		8C4F616E63B782348CE6A35D /* scheme_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AAFE411DC0A742EB8D0BF41 /* scheme_test.cpp */; };
 		8D2656CCBA4E6E44D65ED9AD /* window_test_mac.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2D6630549D783F0C0C3D384D /* window_test_mac.mm */; };
 		950455C658C9643411BE83F0 /* process_helper_mac.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4E2CEF779D90E22847482121 /* process_helper_mac.cpp */; };
 		9B7735785F7F1B68394AA41D /* client_renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C19B2D3B62D6EC89C2477B25 /* client_renderer.cpp */; };
@@ -271,7 +269,6 @@
 /* Begin PBXFileReference section */
 		006AE1034A0202A424C08D50 /* binding_test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = binding_test.cpp; sourceTree = "<group>"; };
 		072F52B20F0B05446344281D /* client_handler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = client_handler.cpp; sourceTree = "<group>"; };
-		0C8C62A2897D96E9BB584DB0 /* scheme_test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = scheme_test.h; sourceTree = "<group>"; };
 		113CCBA1A9C0749EC1A3787A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		12743E44E1C9CA600490572B /* cefclient_osr_widget_mac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cefclient_osr_widget_mac.h; sourceTree = "<group>"; };
 		136219EB61094F719EC4DE08 /* ChromeSyphon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChromeSyphon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -603,7 +600,6 @@
 		7508A3D3BDEBB05F40B61A3E /* dialog_test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dialog_test.cpp; sourceTree = "<group>"; };
 		8284F33BA6AF70EF7869CB40 /* client_app.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = client_app.h; sourceTree = "<group>"; };
 		87046C20181EA9DF3C728635 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8AAFE411DC0A742EB8D0BF41 /* scheme_test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = scheme_test.cpp; sourceTree = "<group>"; };
 		8AEF33382C9CF1DAD2D09A49 /* string_util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = string_util.h; sourceTree = "<group>"; };
 		8F52669BE8CD977DC965A66B /* resource_util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = resource_util.h; sourceTree = "<group>"; };
 		9630034E8628FABD805372FA /* cefclient_osr_widget_mac.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = cefclient_osr_widget_mac.mm; sourceTree = "<group>"; };
@@ -1162,8 +1158,6 @@
 				8F52669BE8CD977DC965A66B /* resource_util.h */,
 				C8403424FD86602A935ED25F /* resource_util_mac.mm */,
 				28CEDD22BF3B86C4AC210837 /* resource_util_posix.cpp */,
-				8AAFE411DC0A742EB8D0BF41 /* scheme_test.cpp */,
-				0C8C62A2897D96E9BB584DB0 /* scheme_test.h */,
 				B11D7267C37E26AE0E9DFF40 /* string_util.cpp */,
 				8AEF33382C9CF1DAD2D09A49 /* string_util.h */,
 				13964235240570B769345A5E /* util.h */,
@@ -1482,7 +1476,6 @@
 				950455C658C9643411BE83F0 /* process_helper_mac.cpp in Sources */,
 				6A7A33A56EB634F4AB364FAE /* resource_util_mac.mm in Sources */,
 				4A3A8416D0C14EA8675E2B38 /* resource_util_posix.cpp in Sources */,
-				8C4F616E63B782348CE6A35D /* scheme_test.cpp in Sources */,
 				77A54B17352BE886E467DCB7 /* string_util.cpp in Sources */,
 				FC84908378F2434166E3D767 /* window_test.cpp in Sources */,
 				0406C822FFF747FB7AE77BA5 /* window_test_mac.mm in Sources */,
@@ -1504,7 +1497,6 @@
 				FB6DE34D339BA828B9B82C59 /* osrenderer.cpp in Sources */,
 				F4606BD42D6BCE7408AA4562 /* performance_test.cpp in Sources */,
 				4D7EEFC130CBFA8B8DDF291D /* performance_test_tests.cpp in Sources */,
-				0A7994D5F31B85F728C91110 /* scheme_test.cpp in Sources */,
 				F2CF323CDF9F339FD42115BE /* string_util.cpp in Sources */,
 				1AEF88B979643E1D3CDF6FE6 /* window_test.cpp in Sources */,
 				C54E3F1DD6D7CF80C3C49F7B /* cefclient_mac.mm in Sources */,

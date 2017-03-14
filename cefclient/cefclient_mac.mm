@@ -15,7 +15,6 @@
 #include "cefclient/client_handler.h"
 #include "cefclient/client_switches.h"
 #include "cefclient/resource_util.h"
-#include "cefclient/scheme_test.h"
 #include "cefclient/string_util.h"
 
 // The global ClientHandler reference.
