@@ -7,13 +7,13 @@ This project is based on the example MacOS project included with the Chromium Em
 
 ## Current Release
 
-[Download the latest release here.](https://github.com/glowbox/ChromeSyphon/releases/download/v1.0/ChromeSyphon-build.zip)
+[Download the latest release here](https://github.com/glowbox/ChromeSyphon/releases)
 
 **Note:** Builds are provided as-is, this tool has not been extensively tested.
 
 ## Configuration 
 
-This application will look for a file called `config.json` in the same folder with the app package. 
+By default the application will look for a file called `config.json` in the same folder with the app package. 
 
 Configuration options include:
 
@@ -27,6 +27,13 @@ Configuration options include:
 | start-minimized | boolean | If true, the window will minimize to the dock at startup.
 | allow-window-resize | boolean | If true, the window will be resizable.
 | syphon-name | string | The name of the syphon source.
+
+
+If you need multiple launch configurations, you may specify a different file name for the configuration JSON file via the `-config` command line argument.
+
+Example:
+
+`open -a ChromeSyphon.app --args -config=my-production-config.json`
 
 
 ## Building the Project
