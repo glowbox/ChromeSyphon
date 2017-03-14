@@ -69,16 +69,17 @@ void AppGetSettings(CefSettings& settings) {
 }
 
 bool AppIsOffScreenRenderingEnabled() {
-  /*
+   /*
    ASSERT(g_command_line.get());
    if (!g_command_line.get())
     return false;
 
    return g_command_line->HasSwitch(cefclient::kOffScreenRenderingEnabled);
    */
-    return true;
+   return true;
 }
 
+/*
 void RunGetSourceTest(CefRefPtr<CefBrowser> browser) {
   class Visitor : public CefStringVisitor {
    public:
@@ -187,3 +188,4 @@ void RunPluginInfoTest(CefRefPtr<CefBrowser> browser) {
 void RunOtherTests(CefRefPtr<CefBrowser> browser) {
   browser->GetMainFrame()->LoadURL("http://tests/other_tests");
 }
+ */

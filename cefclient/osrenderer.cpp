@@ -34,9 +34,7 @@ ClientOSRenderer::ClientOSRenderer(bool transparent)
       initialized_(false),
       texture_id_(0),
       view_width_(0),
-      view_height_(0),
-      spin_x_(0),
-      spin_y_(0) {
+      view_height_(0) {
 }
 
 ClientOSRenderer::~ClientOSRenderer() {
@@ -249,14 +247,4 @@ void ClientOSRenderer::ClearPopupRects() {
   }
 
     return texture_id_;
-}
-
-void ClientOSRenderer::SetSpin(float spinX, float spinY) {
-  spin_x_ = spinX;
-  spin_y_ = spinY;
-}
-
-void ClientOSRenderer::IncrementSpin(float spinDX, float spinDY) {
-  spin_x_ -= spinDX;
-  spin_y_ -= spinDY;
 }

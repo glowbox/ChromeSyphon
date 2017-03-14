@@ -26,7 +26,6 @@ class OSRBrowserProvider {
   ClientOSRenderer* renderer_;
   NSPoint last_mouse_pos_;
   NSPoint cur_mouse_pos_;
-  bool rotating_;
 
   bool was_last_mouse_down_on_view_;
 

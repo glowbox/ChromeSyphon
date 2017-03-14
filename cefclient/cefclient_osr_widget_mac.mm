@@ -343,7 +343,7 @@ void ClientOSRHandler::SetLoading(bool isLoading) {
     self = [super initWithFrame:frame pixelFormat:pixelFormat];
     if (self) {
         renderer_ = new ClientOSRenderer(transparency);
-        rotating_ = false;
+
         endWheelMonitor_ = nil;
         
         tracking_area_ =
@@ -433,13 +433,6 @@ void ClientOSRHandler::SetLoading(bool isLoading) {
 }
 
 - (void)rightMouseDown:(NSEvent *)event {
-    if ([event modifierFlags] & NSShiftKeyMask) {
-        // Start rotation effect.
-        last_mouse_pos_ = cur_mouse_pos_ = [self getClickPointForEvent:event];
-        rotating_ = true;
-        return;
-    }
-    
     [self sendMouseClick: event button:MBT_RIGHT isUp:false];
 }
 
@@ -452,13 +445,7 @@ void ClientOSRHandler::SetLoading(bool isLoading) {
 }
 
 - (void)rightMouseUp:(NSEvent *)event {
-    if (rotating_) {
-        // End rotation effect.
-        renderer_->SetSpin(0, 0);
-        rotating_ = false;
-        [self setNeedsDisplay:YES];
-        return;
-    }
+
     [self sendMouseClick: event button: MBT_RIGHT isUp: true];
 }
 
@@ -471,16 +458,7 @@ void ClientOSRHandler::SetLoading(bool isLoading) {
     if (!browser)
         return;
     
-    if (rotating_) {
-        // Apply rotation effect.
-        cur_mouse_pos_ = [self getClickPointForEvent:event];;
-        renderer_->IncrementSpin((cur_mouse_pos_.x - last_mouse_pos_.x),
-                                 (cur_mouse_pos_.y - last_mouse_pos_.y));
-        last_mouse_pos_ = cur_mouse_pos_;
-        [self setNeedsDisplay:YES];
-        return;
-    }
-    
+   
     CefMouseEvent mouseEvent;
     [self getMouseEvent: mouseEvent forEvent: event];
     browser->GetHost()->SendMouseMoveEvent(mouseEvent, false);

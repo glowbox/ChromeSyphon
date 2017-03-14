@@ -18,6 +18,7 @@ namespace cefclient {
 //   chrome/common/chrome_switches.cc (not all apply)
 //   content/public/common/content_switches.cc
 
+const char kConfigFile[] = "config";
 const char kMultiThreadedMessageLoop[] = "multi-threaded-message-loop";
 const char kCachePath[] = "cache-path";
 const char kUrl[] = "url";

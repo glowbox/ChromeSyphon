@@ -223,8 +223,22 @@ NSButton* MakeButton(NSRect* rect, NSString* title, NSView* parent) {
 @implementation ClientAppDelegate
 
 - (void) loadJSONConfig {
+
     
-    NSString *jsonPath = [NSString stringWithFormat:@"%@/../config.json", [[NSBundle mainBundle] bundlePath]];
+    CefRefPtr<CefCommandLine> cmd_line = AppGetCommandLine();
+    
+
+    NSString *jsonFileName;
+    
+    if(cmd_line->HasSwitch(cefclient::kConfigFile)) {
+        CefString configFile = cmd_line->GetSwitchValue(cefclient::kConfigFile);
+        std::string str(configFile);
+        jsonFileName = [NSString stringWithUTF8String:str.c_str()];
+    } else {
+        jsonFileName = @"config.json";
+    }
+    
+    NSString *jsonPath = [NSString stringWithFormat:@"%@/../%@", [[NSBundle mainBundle] bundlePath], jsonFileName];
     NSData *data = [NSData dataWithContentsOfFile:jsonPath];
     
     if(data != nil) {
@@ -263,7 +277,7 @@ NSButton* MakeButton(NSRect* rect, NSString* title, NSView* parent) {
         }
         
     } else {
-        NSLog(@"Couldn't find config.json, using defaults.");
+        NSLog(@"Couldn't find config json file, using defaults.");
     }
 }
 
@@ -271,6 +285,7 @@ NSButton* MakeButton(NSRect* rect, NSString* title, NSView* parent) {
 // Create the application on the UI thread.
 - (void)createApp:(id)object {
     [NSApplication sharedApplication];
+    
     [NSBundle loadNibNamed:@"MainMenu" owner:NSApp];
     
     // Set the delegate for application events.
@@ -292,8 +307,6 @@ NSButton* MakeButton(NSRect* rect, NSString* title, NSView* parent) {
     if( bAllowResize) {
         styleMaskFlags = styleMaskFlags | NSResizableWindowMask;
     }
-    
-    
     
     NSWindow* mainWnd = [[UnderlayOpenGLHostingWindow alloc]
                          initWithContentRect:window_rect
@@ -438,7 +451,7 @@ int main(int argc, char* argv[]) {
     CefInitialize(main_args, settings, app.get());
     
     // Register the scheme handler.
-    scheme_test::InitTest();
+    // scheme_test::InitTest();
     
     // Create the application delegate and window.
     NSObject* delegate = [[ClientAppDelegate alloc] init];

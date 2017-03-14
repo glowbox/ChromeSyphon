@@ -35,8 +35,8 @@ class ClientOSRenderer {
                const void* buffer, int width, int height);
 
   // Apply spin.
-  void SetSpin(float spinX, float spinY);
-  void IncrementSpin(float spinDX, float spinDY);
+ // void SetSpin(float spinX, float spinY);
+ // void IncrementSpin(float spinDX, float spinDY);
 
   bool IsTransparent() { return transparent_; }
 
@@ -57,8 +57,6 @@ class ClientOSRenderer {
   int view_height_;
   CefRect popup_rect_;
   CefRect original_popup_rect_;
-  float spin_x_;
-  float spin_y_;
 };
 
 #endif  // CEF_TESTS_CEFCLIENT_OSRENDERER_H_

@@ -40,12 +40,12 @@ bool AppIsOffScreenRenderingEnabled();
 void AppQuitMessageLoop();
 
 // Implementations for various tests.
-void RunGetSourceTest(CefRefPtr<CefBrowser> browser);
-void RunGetTextTest(CefRefPtr<CefBrowser> browser);
-void RunRequestTest(CefRefPtr<CefBrowser> browser);
-void RunPopupTest(CefRefPtr<CefBrowser> browser);
-void RunPluginInfoTest(CefRefPtr<CefBrowser> browser);
-void RunOtherTests(CefRefPtr<CefBrowser> browser);
+//void RunGetSourceTest(CefRefPtr<CefBrowser> browser);
+//void RunGetTextTest(CefRefPtr<CefBrowser> browser);
+//void RunRequestTest(CefRefPtr<CefBrowser> browser);
+//void RunPopupTest(CefRefPtr<CefBrowser> browser);
+//void RunPluginInfoTest(CefRefPtr<CefBrowser> browser);
+//void RunOtherTests(CefRefPtr<CefBrowser> browser);
 
 #if defined(OS_WIN)
 void RunTransparentPopupTest(CefRefPtr<CefBrowser> browser);
