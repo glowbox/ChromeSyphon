@@ -29,7 +29,7 @@ Configuration options include:
 | syphon-name | string | The name of the syphon source.
 
 
-If you need multiple launch configurations, you may specify a different file name for the configuration JSON file via the `-config` command line argument.
+If you need multiple launch configurations, you may specify a different file name for the configuration JSON file via the `config` command line argument.
 
 Example:
 
