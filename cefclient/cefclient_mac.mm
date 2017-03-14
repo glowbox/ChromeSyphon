@@ -222,10 +222,8 @@ NSButton* MakeButton(NSRect* rect, NSString* title, NSView* parent) {
 @implementation ClientAppDelegate
 
 - (void) loadJSONConfig {
-
     
     CefRefPtr<CefCommandLine> cmd_line = AppGetCommandLine();
-    
 
     NSString *jsonFileName;
     
