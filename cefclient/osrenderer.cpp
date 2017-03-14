@@ -72,8 +72,9 @@ void ClientOSRenderer::Cleanup() {
 }
 
 void ClientOSRenderer::Render() {
-  if (view_width_ == 0 || view_height_ == 0)
+  if (view_width_ == 0 || view_height_ == 0) {
     return;
+  }
 
   ASSERT(initialized_);
 
@@ -97,25 +98,7 @@ void ClientOSRenderer::Render() {
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
   glOrtho(0, 0, view_width_, view_height_, 0.1, 100.0);
-
-  // Draw the background gradient.
-  glPushAttrib(GL_ALL_ATTRIB_BITS);
-  glBegin(GL_QUADS);
-  glColor4f(1.0, 0.0, 0.0, 1.0);  // red
-  glVertex2f(-1.0, -1.0);
-  glVertex2f(1.0, -1.0);
-  glColor4f(0.0, 0.0, 1.0, 1.0);  // blue
-  glVertex2f(1.0, 1.0);
-  glVertex2f(-1.0, 1.0);
-  glEnd();
-  glPopAttrib();
-
-  // Rotate the view based on the mouse spin.
-  if (spin_x_ != 0)
-    glRotatef(-spin_x_, 1.0f, 0.0f, 0.0f);
-  if (spin_y_ != 0)
-    glRotatef(-spin_y_, 0.0f, 1.0f, 0.0f);
-
+    
   if (transparent_) {
     // Alpha blending style. Texture values have premultiplied alpha.
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);

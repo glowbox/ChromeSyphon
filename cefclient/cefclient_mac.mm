@@ -47,8 +47,8 @@ int WindowPositionX = 0;
 int WindowPositionY = 0;
 
 bool bAllowResize = true;
-NSString *StartupURL = @"http://www.google.com";
 
+NSString *StartupURL = @"http://www.google.com";
 NSString *SyphonName = @"Chrome Syphon";
 
 
@@ -215,40 +215,28 @@ NSButton* MakeButton(NSRect* rect, NSString* title, NSView* parent) {
 }
 
 // Receives notifications from the application. Will delete itself when done.
-@interface ClientAppDelegate : NSObject
+@interface ClientAppDelegate : NSObject<NSFileManagerDelegate>
 - (void)createApp:(id)object;
-- (IBAction)testGetSource:(id)sender;
-- (IBAction)testGetText:(id)sender;
-- (IBAction)testPopupWindow:(id)sender;
-- (IBAction)testRequest:(id)sender;
-- (IBAction)testPluginInfo:(id)sender;
-- (IBAction)testZoomIn:(id)sender;
-- (IBAction)testZoomOut:(id)sender;
-- (IBAction)testZoomReset:(id)sender;
-- (IBAction)testBeginTracing:(id)sender;
-- (IBAction)testEndTracing:(id)sender;
-- (IBAction)testPrint:(id)sender;
-- (IBAction)testOtherTests:(id)sender;
+- (void)loadJSONConfig;
 @end
 
 @implementation ClientAppDelegate
 
 - (void) loadJSONConfig {
     
-    NSFileManager *fm = [[[NSFileManager alloc] init] autorelease];
     NSString *jsonPath = [NSString stringWithFormat:@"%@/../config.json", [[NSBundle mainBundle] bundlePath]];
-    
     NSData *data = [NSData dataWithContentsOfFile:jsonPath];
+    
     if(data != nil) {
         NSError *error = nil;
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
                                                              options:kNilOptions
                                                                error:&error];
+        
         int contentWidth = [[json valueForKey:@"content-width"] integerValue];
         int contentHeight = [[json valueForKey:@"content-height"] integerValue];
         
         if((contentWidth > 0) && (contentHeight > 0)) {
-            // NSLog(@"Setting Content Size: %d x %d", screenWidth, screenHeight);
             WindowWidth = contentWidth;
             WindowHeight = contentHeight;
         }
@@ -277,7 +265,6 @@ NSButton* MakeButton(NSRect* rect, NSString* title, NSView* parent) {
     } else {
         NSLog(@"Couldn't find config.json, using defaults.");
     }
-    
 }
 
 
@@ -313,7 +300,8 @@ NSButton* MakeButton(NSRect* rect, NSString* title, NSView* parent) {
                          styleMask:(styleMaskFlags)
                          backing:NSBackingStoreBuffered
                          defer:NO];
-    [mainWnd setTitle:@"Chrome Syphon Client"];
+    
+    [mainWnd setTitle:@"Chrome to Syphon"];
     [mainWnd setDelegate:delegate];
     
     // Rely on the window delegate to clean us up rather than immediately
@@ -326,33 +314,22 @@ NSButton* MakeButton(NSRect* rect, NSString* title, NSView* parent) {
     
     // Create the buttons.
     NSRect button_rect = [contentView bounds];
-    button_rect.origin.y = window_rect.size.height - URLBAR_HEIGHT +
-    (URLBAR_HEIGHT - BUTTON_HEIGHT) / 2;
+    button_rect.origin.y = window_rect.size.height - URLBAR_HEIGHT + (URLBAR_HEIGHT - BUTTON_HEIGHT) / 2;
     button_rect.size.height = BUTTON_HEIGHT;
     button_rect.origin.x += BUTTON_MARGIN;
     button_rect.size.width = BUTTON_WIDTH;
     
-    NSButton* button = MakeButton(&button_rect, @"Back", contentView);
-    [button setTarget:delegate];
-    [button setAction:@selector(goBack:)];
-    
-    button = MakeButton(&button_rect, @"Forward", contentView);
-    [button setTarget:delegate];
-    [button setAction:@selector(goForward:)];
-    
-    button = MakeButton(&button_rect, @"Reload", contentView);
+    NSButton* button = MakeButton(&button_rect, @"Reload", contentView);
     [button setTarget:delegate];
     [button setAction:@selector(reload:)];
-    
-    button = MakeButton(&button_rect, @"Stop", contentView);
-    [button setTarget:delegate];
-    [button setAction:@selector(stopLoading:)];
     
     // Create the URL text field.
     button_rect.origin.x += BUTTON_MARGIN;
     button_rect.size.width = [contentView bounds].size.width -
     button_rect.origin.x - BUTTON_MARGIN;
+    
     NSTextField* editWnd = [[NSTextField alloc] initWithFrame:button_rect];
+    
     [contentView addSubview:editWnd];
     [editWnd setAutoresizingMask:(NSViewWidthSizable | NSViewMinYMargin)];
     [editWnd setTarget:delegate];
@@ -409,78 +386,13 @@ NSButton* MakeButton(NSRect* rect, NSString* title, NSView* parent) {
     }
 }
 
-- (IBAction)testGetSource:(id)sender {
-    if (g_handler.get() && g_handler->GetBrowserId())
-        RunGetSourceTest(g_handler->GetBrowser());
-}
-
-- (IBAction)testGetText:(id)sender {
-    if (g_handler.get() && g_handler->GetBrowserId())
-        RunGetTextTest(g_handler->GetBrowser());
-}
-
-- (IBAction)testPopupWindow:(id)sender {
-    if (g_handler.get() && g_handler->GetBrowserId())
-        RunPopupTest(g_handler->GetBrowser());
-}
-
-- (IBAction)testRequest:(id)sender {
-    if (g_handler.get() && g_handler->GetBrowserId())
-        RunRequestTest(g_handler->GetBrowser());
-}
-
-- (IBAction)testPluginInfo:(id)sender {
-    if (g_handler.get() && g_handler->GetBrowserId())
-        RunPluginInfoTest(g_handler->GetBrowser());
-}
-
-- (IBAction)testZoomIn:(id)sender {
-    if (g_handler.get() && g_handler->GetBrowserId()) {
-        CefRefPtr<CefBrowser> browser = g_handler->GetBrowser();
-        browser->GetHost()->SetZoomLevel(browser->GetHost()->GetZoomLevel() + 0.5);
-    }
-}
-
-- (IBAction)testZoomOut:(id)sender {
-    if (g_handler.get() && g_handler->GetBrowserId()) {
-        CefRefPtr<CefBrowser> browser = g_handler->GetBrowser();
-        browser->GetHost()->SetZoomLevel(browser->GetHost()->GetZoomLevel() - 0.5);
-    }
-}
-
-- (IBAction)testZoomReset:(id)sender {
-    if (g_handler.get() && g_handler->GetBrowserId()) {
-        CefRefPtr<CefBrowser> browser = g_handler->GetBrowser();
-        browser->GetHost()->SetZoomLevel(0.0);
-    }
-}
-
-- (IBAction)testBeginTracing:(id)sender {
-    if (g_handler.get())
-        g_handler->BeginTracing();
-}
-
-- (IBAction)testEndTracing:(id)sender {
-    if (g_handler.get())
-        g_handler->EndTracing();
-}
-
-- (IBAction)testPrint:(id)sender {
-    if (g_handler.get() && g_handler->GetBrowserId())
-        g_handler->GetBrowser()->GetHost()->Print();
-}
-
-- (IBAction)testOtherTests:(id)sender {
-    if (g_handler.get() && g_handler->GetBrowserId())
-        RunOtherTests(g_handler->GetBrowser());
-}
 
 // Called when the application's Quit menu item is selected.
-- (NSApplicationTerminateReply)applicationShouldTerminate:
-(NSApplication *)sender {
+- (NSApplicationTerminateReply)applicationShouldTerminate: (NSApplication *)sender {
     // Request that all browser windows close.
-    if (g_handler.get())
+    if (g_handler.get()) {
         g_handler->CloseAllBrowsers(false);
+    }
     
     // Cancel the termination. The application will exit after all windows have
     // closed.

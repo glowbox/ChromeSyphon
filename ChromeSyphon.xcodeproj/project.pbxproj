@@ -37,9 +37,6 @@
 		4A3A8416D0C14EA8675E2B38 /* resource_util_posix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28CEDD22BF3B86C4AC210837 /* resource_util_posix.cpp */; };
 		4D7EEFC130CBFA8B8DDF291D /* performance_test_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F03414DFBE490E72457905C1 /* performance_test_tests.cpp */; };
 		507665EDE376A68C3C51103D /* performance_test_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F03414DFBE490E72457905C1 /* performance_test_tests.cpp */; };
-		514260871E7725DB00D682D2 /* ffmpegsumo.so in Frameworks */ = {isa = PBXBuildFile; fileRef = 51425EE31E7725DB00D682D2 /* ffmpegsumo.so */; };
-		5142608A1E7725DB00D682D2 /* libcef.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 51425EE41E7725DB00D682D2 /* libcef.dylib */; };
-		5142608D1E7725DB00D682D2 /* libplugin_carbon_interpose.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 51425EE51E7725DB00D682D2 /* libplugin_carbon_interpose.dylib */; };
 		514260901E7725DB00D682D2 /* app_cpptoc.cc in Sources */ = {isa = PBXBuildFile; fileRef = 51425F681E7725DB00D682D2 /* app_cpptoc.cc */; };
 		514260931E7725DB00D682D2 /* browser_process_handler_cpptoc.cc in Sources */ = {isa = PBXBuildFile; fileRef = 51425F6B1E7725DB00D682D2 /* browser_process_handler_cpptoc.cc */; };
 		514260961E7725DB00D682D2 /* client_cpptoc.cc in Sources */ = {isa = PBXBuildFile; fileRef = 51425F6D1E7725DB00D682D2 /* client_cpptoc.cc */; };
@@ -125,17 +122,15 @@
 		514261861E7725DC00D682D2 /* cef_zip_archive.cc in Sources */ = {isa = PBXBuildFile; fileRef = 5142600F1E7725DB00D682D2 /* cef_zip_archive.cc */; };
 		514261891E7725DC00D682D2 /* libcef_dll_wrapper.cc in Sources */ = {isa = PBXBuildFile; fileRef = 514260101E7725DB00D682D2 /* libcef_dll_wrapper.cc */; };
 		5142618C1E7725DC00D682D2 /* libcef_dll_wrapper2.cc in Sources */ = {isa = PBXBuildFile; fileRef = 514260111E7725DB00D682D2 /* libcef_dll_wrapper2.cc */; };
-		5142618F1E7725DC00D682D2 /* ffmpegsumo.so in Frameworks */ = {isa = PBXBuildFile; fileRef = 514260131E7725DB00D682D2 /* ffmpegsumo.so */; };
-		514261921E7725DC00D682D2 /* libcef.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 514260141E7725DB00D682D2 /* libcef.dylib */; };
-		514261931E7725DC00D682D2 /* libcef.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 514260141E7725DB00D682D2 /* libcef.dylib */; };
-		514261951E7725DC00D682D2 /* libplugin_carbon_interpose.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 514260151E7725DB00D682D2 /* libplugin_carbon_interpose.dylib */; };
 		514261D31E772B6400D682D2 /* Resources in Copy to $(BUILT_PRODUCTS_DIR)/cefclient.app/Contents/Frameworks/Chromium Embedded Framework.framework/ */ = {isa = PBXBuildFile; fileRef = 514261CE1E772A0C00D682D2 /* Resources */; };
 		514261D61E772BCD00D682D2 /* libplugin_carbon_interpose.dylib in Copy to $(BUILT_PRODUCTS_DIR)/cefclient.app/Contents/Frameworks */ = {isa = PBXBuildFile; fileRef = 51425EE51E7725DB00D682D2 /* libplugin_carbon_interpose.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		514261D91E772F0900D682D2 /* libcef.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 514260141E7725DB00D682D2 /* libcef.dylib */; };
 		514261DA1E772FB700D682D2 /* libcef.dylib in Copy to $(BUILT_PRODUCTS_DIR)/cefclient.app/Contents/Frameworks/Chromium Embedded Framework.framework/Libraries/ */ = {isa = PBXBuildFile; fileRef = 514260141E7725DB00D682D2 /* libcef.dylib */; };
 		514261DB1E772FBA00D682D2 /* ffmpegsumo.so in Copy to $(BUILT_PRODUCTS_DIR)/cefclient.app/Contents/Frameworks/Chromium Embedded Framework.framework/Libraries/ */ = {isa = PBXBuildFile; fileRef = 514260131E7725DB00D682D2 /* ffmpegsumo.so */; };
 		514261DE1E7730D400D682D2 /* Syphon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 514261DD1E7730D400D682D2 /* Syphon.framework */; };
 		514261DF1E77310D00D682D2 /* Syphon.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 514261DD1E7730D400D682D2 /* Syphon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		514261E21E787A0700D682D2 /* ChromeSyphon Helper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = CAAD96D31A880F79FED07882 /* ChromeSyphon Helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		514261E51E787C6700D682D2 /* libcef.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 514260141E7725DB00D682D2 /* libcef.dylib */; };
+		514261E61E787C7000D682D2 /* libcef.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 514260141E7725DB00D682D2 /* libcef.dylib */; };
 		51E5A3431E771A23001908C2 /* config.json in CopyFiles */ = {isa = PBXBuildFile; fileRef = 51E5A3421E771A19001908C2 /* config.json */; };
 		52B9F7D300C926DBDA31B79C /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 575B8B058160F0E57AA6811C /* AppKit.framework */; };
 		5E3B54DDD936A9B004CE8A99 /* libcef_dll_wrapper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E07938F71CFB6B3F62A8E872 /* libcef_dll_wrapper.a */; };
@@ -248,6 +243,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				514261DF1E77310D00D682D2 /* Syphon.framework in CopyFiles */,
+				514261E21E787A0700D682D2 /* ChromeSyphon Helper.app in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,12 +636,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				514261951E7725DC00D682D2 /* libplugin_carbon_interpose.dylib in Frameworks */,
-				5142608D1E7725DB00D682D2 /* libplugin_carbon_interpose.dylib in Frameworks */,
-				514260871E7725DB00D682D2 /* ffmpegsumo.so in Frameworks */,
-				5142618F1E7725DC00D682D2 /* ffmpegsumo.so in Frameworks */,
-				5142608A1E7725DB00D682D2 /* libcef.dylib in Frameworks */,
-				514261921E7725DC00D682D2 /* libcef.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,7 +643,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				514261D91E772F0900D682D2 /* libcef.dylib in Frameworks */,
+				514261E51E787C6700D682D2 /* libcef.dylib in Frameworks */,
 				5E3B54DDD936A9B004CE8A99 /* libcef_dll_wrapper.a in Frameworks */,
 				EEE73B9F2B89364B4FB1EEB2 /* AppKit.framework in Frameworks */,
 				514261DE1E7730D400D682D2 /* Syphon.framework in Frameworks */,
@@ -665,9 +655,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				514261E61E787C7000D682D2 /* libcef.dylib in Frameworks */,
 				B2088D34A23924B48E95C750 /* libcef_dll_wrapper.a in Frameworks */,
 				52B9F7D300C926DBDA31B79C /* AppKit.framework in Frameworks */,
-				514261931E7725DC00D682D2 /* libcef.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1364,7 +1354,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#exec tools/strip_from_xcode\n#exit 1\n";
+			shellScript = "#exec CEF/tools/strip_from_xcode\n#exit 1\n";
 			showEnvVarsInLog = 0;
 		};
 		51E5A33F1E7712AE001908C2 /* Move ChromeHelper.app into Contents/Frameworks */ = {
@@ -1379,7 +1369,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ -d \"$BUILT_PRODUCTS_DIR/ChromeSyphon.app/Contents/Frameworks/ChromeSyphon Helper.app\" ]; then\n  rm -r \"$BUILT_PRODUCTS_DIR/ChromeSyphon.app/Contents/Frameworks/ChromeSyphon Helper.app\"\nfi\n\nmv \"$BUILT_PRODUCTS_DIR/ChromeSyphon Helper.app\" \"$BUILT_PRODUCTS_DIR/ChromeSyphon.app/Contents/Frameworks\"\n";
+			shellScript = "#if [ -d \"$BUILT_PRODUCTS_DIR/ChromeSyphon.app/Contents/Frameworks/ChromeSyphon Helper.app\" ]; then\n#  rm -r \"$BUILT_PRODUCTS_DIR/ChromeSyphon.app/Contents/Frameworks/ChromeSyphon Helper.app\"\n#fi\n\n#mv \"$BUILT_PRODUCTS_DIR/ChromeSyphon Helper.app\" \"$BUILT_PRODUCTS_DIR/ChromeSyphon.app/Contents/Frameworks\"\n";
 			showEnvVarsInLog = 0;
 		};
 		60F4FBFE68F6FC26CFBE112F /* Postbuild "Fix Framework Link" */ = {
@@ -1427,7 +1417,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#exec tools/make_more_helpers.sh Frameworks ChromeSyphon\n#exit 1\n";
+			shellScript = "exec CEF/tools/make_more_helpers.sh Frameworks ChromeSyphon\nexit 1\n";
 			showEnvVarsInLog = 0;
 		};
 		C7D8B76891B2EB408E226FA2 /* Postbuild "Change Mach-O Flags" */ = {
@@ -1747,8 +1737,6 @@
 				INFOPLIST_FILE = "cefclient/mac/helper-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(SDKROOT)/System/Library/Frameworks",
-					"$(CONFIGURATION)",
-					"$(PROJECT_DIR)/CEF/Debug",
 					"$(PROJECT_DIR)/CEF/Release",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
@@ -1767,6 +1755,7 @@
 					"-Wextra",
 					"-Wno-unused-parameter",
 					"-Wno-missing-field-initializers",
+					"-Wno-inconsistent-missing-override",
 				);
 				WRAPPER_PREFIX = "";
 			};
@@ -1836,9 +1825,7 @@
 				INFOPLIST_FILE = "cefclient/mac/helper-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(SDKROOT)/System/Library/Frameworks",
-					"$(CONFIGURATION)",
 					"$(PROJECT_DIR)/CEF/Debug",
-					"$(PROJECT_DIR)/CEF/Release",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_CFLAGS = (
@@ -1859,6 +1846,7 @@
 					"-Wextra",
 					"-Wno-unused-parameter",
 					"-Wno-missing-field-initializers",
+					"-Wno-inconsistent-missing-override",
 				);
 				WRAPPER_PREFIX = "";
 			};
@@ -1951,8 +1939,6 @@
 				INFOPLIST_FILE = cefclient/mac/Info.plist;
 				LIBRARY_SEARCH_PATHS = (
 					"$(SDKROOT)/System/Library/Frameworks",
-					"$(CONFIGURATION)",
-					"$(PROJECT_DIR)/Release",
 					"$(PROJECT_DIR)/CEF/Debug",
 					"$(PROJECT_DIR)/CEF/Release",
 				);
@@ -1965,6 +1951,7 @@
 					"-Wl,-search_paths_first",
 					"-Wl,-ObjC",
 					"-Wl,-pie",
+					"-headerpad_max_install_names",
 				);
 				PRODUCT_NAME = ChromeSyphon;
 				SDKROOT = macosx;
@@ -1977,6 +1964,7 @@
 					"-Wextra",
 					"-Wno-unused-parameter",
 					"-Wno-missing-field-initializers",
+					"-Wno-inconsistent-missing-override",
 				);
 				WRAPPER_PREFIX = "";
 			};
@@ -2055,7 +2043,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CEF/Debug",
-					"$(PROJECT_DIR)/CEF/Release",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_CFLAGS = (
@@ -2073,6 +2060,7 @@
 					"-Wextra",
 					"-Wno-unused-parameter",
 					"-Wno-missing-field-initializers",
+					"-Wno-inconsistent-missing-override",
 				);
 			};
 			name = Debug;
@@ -2159,9 +2147,6 @@
 				INFOPLIST_FILE = cefclient/mac/Info.plist;
 				LIBRARY_SEARCH_PATHS = (
 					"$(SDKROOT)/System/Library/Frameworks",
-					"$(CONFIGURATION)",
-					"$(PROJECT_DIR)/Release",
-					"$(PROJECT_DIR)/CEF/Debug",
 					"$(PROJECT_DIR)/CEF/Release",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
@@ -2170,6 +2155,7 @@
 					"-Wl,-search_paths_first",
 					"-Wl,-ObjC",
 					"-Wl,-pie",
+					"-headerpad_max_install_names",
 				);
 				PRODUCT_NAME = ChromeSyphon;
 				SDKROOT = macosx;
@@ -2182,6 +2168,7 @@
 					"-Wextra",
 					"-Wno-unused-parameter",
 					"-Wno-missing-field-initializers",
+					"-Wno-inconsistent-missing-override",
 				);
 				WRAPPER_PREFIX = "";
 			};
@@ -2254,7 +2241,6 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/CEF/Debug",
 					"$(PROJECT_DIR)/CEF/Release",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
@@ -2270,6 +2256,7 @@
 					"-Wextra",
 					"-Wno-unused-parameter",
 					"-Wno-missing-field-initializers",
+					"-Wno-inconsistent-missing-override",
 				);
 			};
 			name = Release;

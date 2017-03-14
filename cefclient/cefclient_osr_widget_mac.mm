@@ -28,7 +28,9 @@ static BOOL SupportsBackingPropertiesChangedNotification() {
     // NSWindowDidChangeBackingPropertiesNotification notification was added.
     // If the protocol contains this method description, the notification should
     // be supported as well.
+
     Protocol* windowDelegateProtocol = NSProtocolFromString(@"NSWindowDelegate");
+    
     struct objc_method_description methodDescription =
     protocol_getMethodDescription(
                                   windowDelegateProtocol,
@@ -38,6 +40,7 @@ static BOOL SupportsBackingPropertiesChangedNotification() {
     
     // If the protocol does not contain the method, the returned method
     // description is {NULL, NULL}
+
     return methodDescription.name != NULL || methodDescription.types != NULL;
 }
 
@@ -83,16 +86,19 @@ namespace {
 
 ClientOSRHandler::ClientOSRHandler(ClientOpenGLView* view,
                                    OSRBrowserProvider* browser_provider,
-                                   NSString *syphonName)
-: view_(view),
-painting_popup_(false) {
+                                   NSString *syphonName) : view_(view), painting_popup_(false) {
+
     [view_ retain];
+    
     view_->browser_provider_ = browser_provider;
     
     // Backing property notifications crash on 10.6 when building with the 10.7
     // SDK, see http://crbug.com/260595.
+    
     static BOOL supportsBackingPropertiesNotification =
+    
     SupportsBackingPropertiesChangedNotification();
+    
     if (supportsBackingPropertiesNotification) {
         [[NSNotificationCenter defaultCenter]
          addObserver:view_
@@ -100,17 +106,16 @@ painting_popup_(false) {
          name:NSWindowDidChangeBackingPropertiesNotification
          object:[view_ window]];
     }
+    
     NSOpenGLContext* NScontext = [view_ openGLContext];
     CGLContextObj cglContext = (CGLContextObj) NScontext.CGLContextObj;
-    
-    NSLog(@"Making Syphon Server.");
     
     syphonServer = [[SyphonServer alloc] initWithName:syphonName context:cglContext options:nil];
 }
 
 ClientOSRHandler:: ~ClientOSRHandler() {
-    static BOOL supportsBackingPropertiesNotification =
-    SupportsBackingPropertiesChangedNotification();
+    
+    static BOOL supportsBackingPropertiesNotification = SupportsBackingPropertiesChangedNotification();
     
     if (supportsBackingPropertiesNotification) {
         [[NSNotificationCenter defaultCenter]
@@ -127,23 +132,27 @@ void ClientOSRHandler::Disconnect() {
 
 // CefRenderHandler methods
 void ClientOSRHandler::OnBeforeClose(CefRefPtr<CefBrowser> browser) {
-    if (view_)
+    if (view_) {
         view_->browser_provider_ = NULL;
+    }
 }
 
 bool ClientOSRHandler::GetViewRect(CefRefPtr<CefBrowser> browser,
                                    CefRect& rect) {
     REQUIRE_UI_THREAD();
     
-    if (!view_)
+    if (!view_) {
         return false;
+    }
     
     // The simulated screen and view rectangle are the same. This is necessary
     // for popup menus to be located and sized inside the view.
     const NSRect bounds = [view_ bounds];
+    
     rect.x = rect.y = 0;
     rect.width = bounds.size.width;
     rect.height = bounds.size.height;
+    
     return true;
 }
 
@@ -154,8 +163,9 @@ bool ClientOSRHandler::GetScreenPoint(CefRefPtr<CefBrowser> browser,
                                       int& screenY) {
     REQUIRE_UI_THREAD();
     
-    if (!view_)
+    if (!view_) {
         return false;
+    }
     
     // Convert the point from view coordinates to actual screen coordinates.
     NSRect bounds = [view_ bounds];
@@ -171,27 +181,30 @@ bool ClientOSRHandler::GetScreenInfo(CefRefPtr<CefBrowser> browser,
                                      CefScreenInfo& screen_info) {
     REQUIRE_UI_THREAD();
     
-    if (!view_)
+    if (!view_) {
         return false;
+    }
     
     NSWindow* window = [view_ window];
-    if (!window)
+    if (!window) {
         return false;
+    }
     
     screen_info.device_scale_factor = [view_ getDeviceScaleFactor];
     
     NSScreen* screen = [window screen];
-    if (!screen)
+    if (!screen) {
         screen = [NSScreen deepestScreen];
+    }
     
     screen_info.depth = NSBitsPerPixelFromDepth([screen depth]);
     screen_info.depth_per_component = NSBitsPerSampleFromDepth([screen depth]);
-    screen_info.is_monochrome =
-    [[screen colorSpace] colorSpaceModel] == NSGrayColorSpaceModel;
+    screen_info.is_monochrome = [[screen colorSpace] colorSpaceModel] == NSGrayColorSpaceModel;
+    
     // screen_info.is_monochrome = true;
+    
     screen_info.rect = convertRect([screen frame], [screen frame]);
-    screen_info.available_rect =
-    convertRect([screen visibleFrame], [screen frame]);
+    screen_info.available_rect = convertRect([screen visibleFrame], [screen frame]);
     
     return true;
 }
@@ -200,8 +213,9 @@ void ClientOSRHandler::OnPopupShow(CefRefPtr<CefBrowser> browser,
                                    bool show) {
     REQUIRE_UI_THREAD();
     
-    if (!view_)
+    if (!view_) {
         return;
+    }
     
     if (!show) {
         CefRect client_popup_rect = view_->renderer_->popup_rect();
@@ -221,8 +235,9 @@ void ClientOSRHandler::OnPopupSize(CefRefPtr<CefBrowser> browser,
                                    const CefRect& rect) {
     REQUIRE_UI_THREAD();
     
-    if (!view_)
+    if (!view_) {
         return;
+    }
     
     CefRect scaled_rect = [view_ convertRectToBackingInternal:rect];
     view_->renderer_->OnPopupSize(browser, scaled_rect);
@@ -237,8 +252,9 @@ void ClientOSRHandler::OnPaint(CefRefPtr<CefBrowser> browser,
     
     unsigned int texId;
     
-    if (!view_)
+    if (!view_) {
         return;
+    }
     
     if (painting_popup_) {
         RectList scaled_dirty_rects;
@@ -278,17 +294,18 @@ void ClientOSRHandler::OnPaint(CefRefPtr<CefBrowser> browser,
         painting_popup_ = false;
     }
     
-    if ([syphonServer hasClients])
-    {
+    if ([syphonServer hasClients]) {
+        
         NSRect rect = NSMakeRect(0, 0, view_->renderer_->GetViewWidth(), view_->renderer_->GetViewHeight());
         
-        // publish our frame to our server. We use the whole texture, but we could just publish a region of it
         CGLLockContext(syphonServer.context);
+        
         [syphonServer publishFrameTexture:texId
-                            textureTarget:GL_TEXTURE_2D //was GL_TEXTURE_RECTANGLE_EXT
+                            textureTarget:GL_TEXTURE_2D
                               imageRegion:rect
                         textureDimensions:rect.size
                                   flipped:YES];
+        
         CGLUnlockContext(syphonServer.context);
     }
     else {
@@ -355,8 +372,10 @@ void ClientOSRHandler::SetLoading(bool isLoading) {
         browser->GetHost()->CloseBrowser(true);
         browser = NULL;
     }
-    if (renderer_)
+    
+    if (renderer_) {
         delete renderer_;
+    }
     
     [super dealloc];
 }
@@ -385,16 +404,18 @@ void ClientOSRHandler::SetLoading(bool isLoading) {
     }
     
     CefRefPtr<CefBrowser> browser = [self getBrowser];
-    if (!browser)
+    if (!browser) {
         return;
+    }
     
     CefMouseEvent mouseEvent;
     [self getMouseEvent: mouseEvent forEvent: event];
     NSPoint point = [self getClickPointForEvent:event];
-    if (!isUp)
+    
+    if (!isUp) {
         self.was_last_mouse_down_on_view = ![self isOverPopupWidgetX: point.x
                                                                 andY: point.y];
-    else if (self.was_last_mouse_down_on_view &&
+    } else if (self.was_last_mouse_down_on_view &&
              [self isOverPopupWidgetX:point.x andY: point.y] &&
              ([self getPopupXOffset] || [self getPopupYOffset])) {
         return;
