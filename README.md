@@ -5,6 +5,9 @@ Render any web content as a Syphon source.
 
 This project is based on the example MacOS project included with the Chromium Embedded Framework. It is inspired by the [CefWithSyphon](https://github.com/vibber/CefWithSyphon) project but includes many additional configuration options by way of a JSON file.
 
+**IMPORTANT:** The Chrome Embedded Framework does not support any media codecs which require licensing. That being the case, **MP3 and other commercial codecs will probably not work in ChromeSyphon**. If you need to play audio you must use a free codec such as OGG, WEBM, or WAVE. The same limitation is likely true for video as well. Stick to open formats and you should have no problems.
+
+
 ## Current Release
 
 [Download the latest release here](https://github.com/glowbox/ChromeSyphon/releases)
